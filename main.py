@@ -63,7 +63,8 @@ def main():
             if magnitude > 0:
                 print(f"~~ Fréquence active {magnitude}~~")
                 
-            if detect_tone(history, magnitude, THRESHOLD, BLOCKS):
+            # if detect_tone(history, magnitude, THRESHOLD, BLOCKS):
+            if THRESHOLD_SILENCE_MIN < avg_mag < THRESHOLD_SILENCE_MAX:
                 print(f"{time.strftime('%H:%M:%S')} 🔔 Ton 1750 Hz détecté !")
                 stopListening(proc)
                 launchRecord(FREQ)
